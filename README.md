@@ -49,6 +49,19 @@ php artisan serve
 
 - This is the updated code of admin.
 
+To get the access of admin side there is credentials bellow
+
+- Admin
+
+email: ```testadmin@gmail.com```
+password: ```p$ssw#rd```
+
+- User
+
+email: ```testuser@gmail.com```
+password: ```p$ssw#rd```
+
+
 # Update
 
 - Added the Light/Dark mode in profile section at top nav.
