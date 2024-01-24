@@ -8,13 +8,13 @@ This project is made in Laravel version 10. In this project, I used an Admin LTE
 - For Install you have to clone this repo or you can fire this command as well.
 
 ```php
-git clone https://github.com/Nihirz/laravel-10-adminlte.git
+git clone https://github.com/ZalaNihir/adminlte-laravel10.git
 ```
 
 - Go into folder
 
 ```php
-cd laravel-10-adminlte
+cd adminlte-laravel10
 ```
 
 - After the installation you have to update the vendor folder you can update the vendor folder using this command.
