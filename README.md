@@ -140,3 +140,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 [![LinkedIn URL](https://img.shields.io/badge/Connect%20%40nihirzala-0077B5?style=social&logo=linkedin)](https://www.linkedin.com/in/nihirzala/)
 
 [![Instagram URL](https://img.shields.io/badge/Follow%20%40inihirzala-ff69b4?style=social&logo=instagram)](https://www.instagram.com/inihirzala/)
+
+# Other Projects
+
+Check My Other Project
+
+
+<div width="100%" align="center"><a href="https://github.com/ZalaNihir/csc" align="left"><img align="left" width="45%" src="https://github-readme-stats.vercel.app/api/pin/?username=ZalaNihir&repo=csc&title_color=ffffff&text_color=ffffff&icon_color=0891b2&bg_color=000000&hide_border=true&locale=en" /></a>
