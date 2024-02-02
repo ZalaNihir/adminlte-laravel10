@@ -9,14 +9,15 @@
                 <a href="{{ route('admin.product.create') }}" class="btn btn-sm btn-info">New</a>
             </div>
         </div>
-        <div class="card-body p-0">
-            <table class="table table-striped">
+        <div class="card-body">
+            <table class="table table-striped" id="productTable">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Category</th>
                         <th>Sub Category</th>
-                        <th colspan="2">Action</th>
+                        <th>Action</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,8 +40,17 @@
                 </tbody>
             </table>
         </div>
-        <div class="card-footer clearfix float-right">
-                {!! $data->links() !!}
-        </div>
     </div>
+    @section('js')
+        <script>
+            $(function() {
+                $('#productTable').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "ordering": true,
+                    "responsive": true,
+                });
+            });
+        </script>
+    @endsection
 </x-admin>

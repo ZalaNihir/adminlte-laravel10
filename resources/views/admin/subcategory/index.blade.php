@@ -9,12 +9,13 @@
                 <a href="{{ route('admin.subcategory.create') }}" class="btn btn-sm btn-info">New</a>
             </div>
         </div>
-        <div class="card-body p-0">
-            <table class="table table-striped">
+        <div class="card-body">
+            <table class="table table-striped" id="subcategoryTable">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th colspan="2">Action</th>
+                        <th>Action</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,8 +37,17 @@
                 </tbody>
             </table>
         </div>
-        <div class="card-footer clearfix">
-            {!! $data->links() !!}
-        </div>
     </div>
+    @section('js')
+        <script>
+            $(function() {
+                $('#subcategoryTable').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "ordering": true,
+                    "responsive": true,
+                });
+            });
+        </script>
+    @endsection
 </x-admin>

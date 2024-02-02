@@ -23,7 +23,7 @@ class ProductController extends Controller
         $collection = Collection::get();
         view()->share('collection', $collection);
 
-        $data = Product::orderBy('id', 'DESC')->paginate(5);
+        $data = Product::orderBy('id', 'DESC')->get();
         view()->share('data', $data);
     }
 

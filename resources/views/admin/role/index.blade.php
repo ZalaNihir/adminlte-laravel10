@@ -7,13 +7,14 @@
                 <a href="{{ route('admin.role.create') }}" class="btn btn-sm btn-primary">Add</a>
             </div>
         </div>
-        <div class="card-body p-0">
-            <table class="table table-striped">
+        <div class="card-body">
+            <table class="table table-striped" id="roleTable">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Created</th>
-                        <th colspan="2">Action</th>
+                        <th>Action</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,6 +41,17 @@
                 </tbody>
             </table>
         </div>
-
     </div>
+    @section('js')
+        <script>
+            $(function() {
+                $('#roleTable').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "ordering": true,
+                    "responsive": true,
+                });
+            });
+        </script>
+    @endsection
 </x-admin>

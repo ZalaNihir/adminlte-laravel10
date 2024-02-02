@@ -23,7 +23,7 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        $data = Collection::orderBy('id','DESC')->paginate(5);
+        $data = Collection::orderBy('id','DESC')->get();
         return view('admin.collection.index',compact('data'));
     }
 

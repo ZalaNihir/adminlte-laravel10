@@ -6,17 +6,18 @@
         <div class="card-header">
             <h3 class="card-title">Collection Table</h3>
             <div class="card-tools">
-                <a href="{{ route('admin.collection.create') }}" class="btn btn-sm btn-info">New</a>
+                <a href="{{ route('admin.collection.create') }}"lass="btn btn-sm btn-info">New</a>
             </div>
         </div>
-        <div class="card-body p-0">
-            <table class="table table-striped">
+        <div class="card-body">
+            <table class="table table-striped" id="collectionTable">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
                         <th>Category</th>
-                        <th colspan="2">Action</th>
+                        <th>Action</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,9 +44,6 @@
                 </tbody>
             </table>
         </div>
-        <div class="card-footer clearfix float-right">
-            {!! $data->links() !!}
-        </div>
     </div>
     @section('css')
         <style>
@@ -54,5 +52,17 @@
                 width: auto;
             }
         </style>
+    @endsection
+    @section('js')
+        <script>
+            $(function() {
+                $('#collectionTable').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "ordering": true,
+                    "responsive": true,
+                });
+            });
+        </script>
     @endsection
 </x-admin>
