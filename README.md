@@ -1,4 +1,10 @@
-<p align="center"><a href="https://github.com/ZalaNihir/adminlte-laravel10" target="_blank"><img src="ready-made-admin-lte-10.png" width="400" alt="Admin LTE Logo"></a></p>
+## AdminLTE in laravel-10
+<p align="center"><a href="https://github.com/ZalaNihir/adminlte-laravel10" target="_blank"><img src="ready-made-admin-lte-10.png" width="800" alt="Laravel-10 AdminLTE"></a></p>
+
+## Light-Dark Mode Using Bootstrap
+
+<p align="center"><a href="https://github.com/ZalaNihir/adminlte-laravel10" target="_blank"><img src="light-dark-mode.png" width="800" alt="Bootstrap AdminLTE in LAravel"></a></p>
+
 
 ## About This Projects
 
@@ -10,10 +16,6 @@ This project is made in Laravel version 10. In this project, I used an Admin LTE
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Downloads](https://img.shields.io/github/downloads/ZalaNihir/adminlte-laravel10/total.svg)](https://github.com/ZalaNihir/adminlte-laravel10)
 
-
-## Light-Dark Mode Using Bootstrap
-
-<p align="center"><a href="https://github.com/ZalaNihir/adminlte-laravel10" target="_blank"><img src="light-dark-mode.png" width="400" alt="Admin LTE Logo"></a></p>
 
 
 ## Installation & usage
