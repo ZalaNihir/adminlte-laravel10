@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "234152c4ca571ff0669274f83e96e638",
+    "content-hash": "944f011a8b3b673bebfe60baeb078a09",
     "packages": [
         {
             "name": "brick/math",
@@ -5853,6 +5853,50 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "zalanihir/csc",
+            "version": "v1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZalaNihir/csc.git",
+                "reference": "7d597099575dbf2fb9136c62216faf568d347809"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZalaNihir/csc/zipball/7d597099575dbf2fb9136c62216faf568d347809",
+                "reference": "7d597099575dbf2fb9136c62216faf568d347809",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nihir\\csc\\CSCServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nihir\\csc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nihir Zala",
+                    "email": "testnihir@gmail.com"
+                }
+            ],
+            "description": "This library is used for creating country, state, city seeder & published by the user which automatically creates tables, migrations & models. Users can easily use it in their projects.",
+            "support": {
+                "issues": "https://github.com/ZalaNihir/csc/issues",
+                "source": "https://github.com/ZalaNihir/csc/tree/v1"
+            },
+            "time": "2024-01-26T06:36:34+00:00"
         }
     ],
     "packages-dev": [

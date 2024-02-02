@@ -29,5 +29,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'testuser@gmail.com',
             'password' => bcrypt('p$ssw#rd'),
         ])->assignRole($user);
+        $this->call(CountryStateCityTableSeeder::class);
     }
 }
