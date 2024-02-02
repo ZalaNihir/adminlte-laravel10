@@ -1,6 +1,6 @@
-<p align="center"><a href="https://github.com/Nihirz/laravel-10-adminlte" target="_blank"><img src="https://adminlte.io/wp-content/uploads/2021/03/logo.png" width="400" alt="Admin LTE Logo"></a></p>
+<p align="center"><a href="https://github.com/ZalaNihir/adminlte-laravel10" target="_blank"><img src="ready-made-admin-lte-10.png" width="400" alt="Admin LTE Logo"></a></p>
 
-## About This Repo
+## About This Projects
 
 This project is made in Laravel version 10. In this project, I used an Admin LTE with a breeze installation. Users do have not to worry about assets & folder paths for the admin side. Created for basic e-commerce project admin.Added the basic modules. Don't forget to give star to this repository ⭐.
 
@@ -10,6 +10,10 @@ This project is made in Laravel version 10. In this project, I used an Admin LTE
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Downloads](https://img.shields.io/github/downloads/ZalaNihir/adminlte-laravel10/total.svg)](https://github.com/ZalaNihir/adminlte-laravel10)
 
+
+## Light-Dark Mode Using Bootstrap
+
+<p align="center"><a href="https://github.com/ZalaNihir/adminlte-laravel10" target="_blank"><img src="light-dark-mode.png" width="400" alt="Admin LTE Logo"></a></p>
 
 
 ## Installation & usage
