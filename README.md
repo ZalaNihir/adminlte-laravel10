@@ -69,6 +69,11 @@ password: ```p$ssw#rd```
 email: ```testuser@gmail.com```
 password: ```p$ssw#rd```
 
+- Vendor
+
+email: ```testvendor@gmail.com```
+password: ```p$ssw#rd```
+
 
 # Update
 
