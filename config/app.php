@@ -169,7 +169,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-        Nihir\csc\CSCServiceProvider::class,
+        \Nihir\CountryStateCity\CountryStateCityServiceProvider::class,
     ])->toArray(),
 
     /*

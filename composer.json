@@ -12,7 +12,8 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "spatie/laravel-permission": "^6.0",
-        "zalanihir/csc": "^1.0"
+        "twilio/sdk": "^7.14",
+        "zalanihir/country-state-city": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
