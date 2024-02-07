@@ -26,14 +26,22 @@ Route::prefix('/otp')->middleware('guest')->name('otp.')->controller(LoginWithOT
 });
 
 // Socialite Routes
-Route::get('oauth/github/login',[SocialiteController::class,'redirectToGithub'])->name('github.login');
-Route::get('oauth/github/login/callback',[SocialiteController::class,'HandleGithubCallBack'])->name('github.callback');
+Route::prefix('oauth/')->group(function(){
+    Route::prefix('/github/login')->name('github.')->group(function(){
+        Route::get('/',[SocialiteController::class,'redirectToGithub'])->name('login');
+        Route::get('/callback',[SocialiteController::class,'HandleGithubCallBack'])->name('callback');
+    });
 
-Route::get('oauth/google/login',[SocialiteController::class,'redirectToGoogle'])->name('google.login');
-Route::get('oauth/google/login/callback',[SocialiteController::class,'HandleGoogleCallBack'])->name('google.callback');
+    Route::prefix('/google/login')->name('google.')->group(function(){
+        Route::get('/',[SocialiteController::class,'redirectToGoogle'])->name('google.login');
+        Route::get('/callback',[SocialiteController::class,'HandleGoogleCallBack'])->name('google.callback');        
+    });
 
-Route::get('oauth/facebook/login',[SocialiteController::class,'redirectToFaceBook'])->name('facebook.login');
-Route::get('oauth/facebook/login/callback',[SocialiteController::class,'HandleFaceBookCallBack'])->name('facebook.callback');
+    Route::prefix('/facebook/login')->name('facebook.')->group(function(){
+        Route::get('/',[SocialiteController::class,'redirectToFaceBook'])->name('login');
+        Route::get('/callback',[SocialiteController::class,'HandleFaceBookCallBack'])->name('callback');
+    });
+});
 
 
 
