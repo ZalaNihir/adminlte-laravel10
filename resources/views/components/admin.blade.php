@@ -69,8 +69,12 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                            alt="User Image">
+                        @if (Auth::user()->avatar != null)
+                            <img src="{{ Auth::user()->avatar }}" class="img-circle elevation-2" alt="User Image">
+                        @else
+                            <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                                alt="User Image">/
+                        @endif
                     </div>
                     <div class="info">
                         <a href="{{ route('admin.dashboard') }}" class="d-block">{{ config('app.name') }}</a>
@@ -116,7 +120,8 @@
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 3.2.0
         </div>
-        <strong>Copyright © 2023-{{ date('Y') }} <a href="https://github.com/ZalaNihir/adminlte-laravel10">Zala Nihir</a>.</strong> All rights reserved.
+        <strong>Copyright © 2023-{{ date('Y') }} <a href="https://github.com/ZalaNihir/adminlte-laravel10">Zala
+                Nihir</a>.</strong> All rights reserved.
     </footer>
     <!-- ./wrapper -->
 
@@ -154,7 +159,7 @@
     <script src="{{ asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')  }}"></script>
+    <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
     <!-- Toast cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="

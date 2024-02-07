@@ -18,11 +18,11 @@ class UserSeeder extends Seeder
             'password' => bcrypt('p$ssw#rd'),
         ])->assignRole('admin');
         
-        \App\Models\User::factory()->create([
-            'name' => 'User',
-            'email' => 'testuser@gmail.com',
-            'password' => bcrypt('p$ssw#rd'),
-        ])->assignRole('user');
+        // \App\Models\User::factory()->create([
+        //     'name' => 'User',
+        //     'email' => 'testuser@gmail.com',
+        //     'password' => bcrypt('p$ssw#rd'),
+        // ])->assignRole('user');
 
         \App\Models\User::factory()->create([
             'name' => 'User',
