@@ -33,8 +33,8 @@ Route::prefix('oauth/')->group(function(){
     });
 
     Route::prefix('/google/login')->name('google.')->group(function(){
-        Route::get('/',[SocialiteController::class,'redirectToGoogle'])->name('google.login');
-        Route::get('/callback',[SocialiteController::class,'HandleGoogleCallBack'])->name('google.callback');        
+        Route::get('/',[SocialiteController::class,'redirectToGoogle'])->name('login');
+        Route::get('/callback',[SocialiteController::class,'HandleGoogleCallBack'])->name('callback');        
     });
 
     Route::prefix('/facebook/login')->name('facebook.')->group(function(){
