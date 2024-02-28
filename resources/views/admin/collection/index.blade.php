@@ -6,7 +6,7 @@
         <div class="card-header">
             <h3 class="card-title">Collection Table</h3>
             <div class="card-tools">
-                <a href="{{ route('admin.collection.create') }}"lass="btn btn-sm btn-info">New</a>
+                <a href="{{ route('admin.collection.create') }}" class="btn btn-sm btn-info">New</a>
             </div>
         </div>
         <div class="card-body">
