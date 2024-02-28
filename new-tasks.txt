@@ -1,3 +1,0 @@
-New Task
-
-  - Compress the image size of file while uploadin in admin controllers 
