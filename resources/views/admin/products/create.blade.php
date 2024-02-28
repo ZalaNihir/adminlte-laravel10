@@ -12,6 +12,15 @@
                             <a href="{{ route('admin.product.index') }}" class="btn btn-info btn-sm">Back</a>
                         </div>
                     </div>
+                    {{-- @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="list-unstyled">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif --}}
                     <form class="needs-validation" novalidate action="{{ route('admin.product.store') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
@@ -60,6 +69,9 @@
                                         <select name="subcategory" id="subcategory" class="form-control">
                                             <option value="" selected disabled>select the subcategory</option>
                                         </select>
+                                        @error('subcategory')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -102,9 +114,9 @@
                         category: category,
                     },
                     success: function(data) {
+                        $("#submit").removeAttr('disabled', 'disabled');
+                        $("#submit").html('Save');
                         if (data) {
-                            $("#submit").removeAttr('disabled', 'disabled');
-                            $("#submit").html('Save');
                             $("#subcategory").html(data);
                         }
                     }

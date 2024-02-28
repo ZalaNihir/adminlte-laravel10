@@ -52,10 +52,10 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'collection' => 'required',
             'category' => 'required',
-            'subcategory' => 'required',
-            'image' => 'required',
+            'image' => 'required|image',
         ]);
 
+        // Generate unique slug
         $baseSlug = Str::slug($request->name);
         $uniqueSlug = $baseSlug;
         $counter = 1;
@@ -64,6 +64,7 @@ class ProductController extends Controller
             $counter++;
         }
 
+        // Create new product instance
         $product = new Product();
         $product->name = $request->name;
         $product->collection_id = $request->collection;
@@ -71,21 +72,40 @@ class ProductController extends Controller
         $product->sub_category_id = $request->subcategory;
         $product->slug = $uniqueSlug;
 
-        // Primary product image store
-        if ($primaryImage = $request->file('image')) {
-            $destinationPath = 'product-image/';
-            $profileImage = $uniqueSlug . '.' . $primaryImage->getClientOriginalExtension();
-            $primaryImage->move($destinationPath, $profileImage);
-            $product->image = $profileImage;
-        }
+        // Save the product first to get the ID
+        $product->save();
+
+        // Get the ID of the saved product
+        $productId = $product->id;
+
+        // Compress and store primary product image
+        $product->image = $this->compressAndStoreImage($request->file('image'), $uniqueSlug);
 
         $product->save();
 
-        // Product slider image or external css
-        $productId = $product->id;
-        if ($request->hasFile('product_images')) {
-            foreach ($request->file('product_images') as $image) {
-                $realImage = $uniqueSlug . "-" . rand(1, 9999) . "-" . date('d-m-Y-h-s') . "." . $image->getClientOriginalExtension();
+        // Handle product slider images
+        $this->handleProductSliderImages($request->file('product_images'), $productId);
+
+        return redirect()->route('admin.product.index')->with('success', 'Product created successfully.');
+    }
+
+    private function compressAndStoreImage($image, $uniqueSlug)
+    {
+        // Compress and store the image
+        $compressedImage = imagecreatefromstring(file_get_contents($image->getRealPath()));
+        $filename = $uniqueSlug . '.' . 'webp';
+        $savePath = public_path('product-image/' . $filename);
+        imagewebp($compressedImage, $savePath, 45); // Adjust quality as needed
+        imagedestroy($compressedImage);
+
+        return $filename;
+    }
+
+    private function handleProductSliderImages($images, $productId)
+    {
+        if ($images) {
+            foreach ($images as $image) {
+                $realImage = $productId . "-" . uniqid() . "-" . date('d-m-Y-h-s') . "." . $image->getClientOriginalExtension();
                 $path = $image->move('product-slider-images', $realImage);
                 ProductImage::create([
                     'product_id' => $productId,
@@ -93,9 +113,6 @@ class ProductController extends Controller
                 ]);
             }
         }
-
-
-        return redirect()->route('admin.product.index')->with('success', 'Product created successfully.');
     }
 
     /**

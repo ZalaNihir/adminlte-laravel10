@@ -15,7 +15,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Category</th>
-                        <th>Sub Category</th>
+                        {{-- <th>Sub Category</th> --}}
                         <th>Action</th>
                         <th></th>
                     </tr>
@@ -25,7 +25,7 @@
                         <tr>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->category->name }}</td>
-                            <td>{{ $product->subcategory->name }}</td>
+                            {{-- <td>{{ $product->subcategory->name }}</td> --}}
                             <td><a href="{{ route('admin.product.edit', encrypt($product->id)) }}"
                                     class="btn btn-sm btn-primary">Edit</a></td>
                             <td>
