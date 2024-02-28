@@ -75,33 +75,20 @@ class ProductController extends Controller
         $product->category_id = $request->category;
         $product->sub_category_id = $request->subcategory;
         $product->slug = $uniqueSlug;
-
-        // Save the product first to get the ID
         $product->save();
-
-        // Get the ID of the saved product
         $productId = $product->id;
-
-        // Compress and store primary product image
-        // $product->image = $this->compressAndStoreImage($request->file('image'), $uniqueSlug);
         $product->image = $this->imageService->compressAndStoreImage($request->file('image'), $uniqueSlug, 'product');
-
         $product->save();
-
-        // Handle product slider images
         $this->handleProductSliderImages($request->file('product_images'), $productId);
-
         return redirect()->route('admin.product.index')->with('success', 'Product created successfully.');
     }
 
     private function handleProductSliderImages($images, $productId)
     {
         if ($images) {
-            $uniqueSlug = Str::uuid();
+            $uniqueSlug = 'product-slider-img'.time();
             foreach ($images as $image) {
                 $realImage = $this->imageService->compressAndStoreImage($image, $uniqueSlug, 'slider');
-                // $realImage = $productId . "-" . uniqid() . "-" . date('d-m-Y-h-s') . "." . $image->getClientOriginalExtension();
-                // $path = $image->move('product-slider-images', $realImage);
                 ProductImage::create([
                     'product_id' => $productId,
                     'image' => $realImage,
