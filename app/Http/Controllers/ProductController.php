@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\Collection;
 use App\Models\Product;
 use App\Models\ProductImage;
-use App\Models\SubCateory;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -122,7 +122,7 @@ class ProductController extends Controller
     {
         $data = Product::where('id', decrypt($id))->first();
         $productImages = ProductImage::where('product_id', $data->id)->get();
-        $subcategory = SubCateory::where('category_id', $data->category_id)->get();
+        $subcategory = SubCategory::where('category_id', $data->category_id)->get();
         return view('admin.products.edit', compact('productImages', 'data', 'subcategory'));
     }
 
@@ -131,7 +131,7 @@ class ProductController extends Controller
      */
     public function getsubcategory(Request $request)
     {
-        $subcategory = SubCateory::where('category_id', $request->category)->get();
+        $subcategory = SubCategory::where('category_id', $request->category)->get();
         return view('admin.products.subcategory', compact('subcategory'));
     }
 
