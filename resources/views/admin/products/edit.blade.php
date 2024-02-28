@@ -12,8 +12,8 @@
                             <a href="{{ route('admin.product.index') }}" class="btn btn-info btn-sm">Back</a>
                         </div>
                     </div>
-                    <form class="needs-validation" novalidate action="{{ route('admin.product.update',$data) }}" method="POST"
-                        enctype="multipart/form-data">
+                    <form class="needs-validation" novalidate action="{{ route('admin.product.update', $data) }}"
+                        method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <input type="hidden" name="id" value="{{ $data->id }}">
@@ -61,7 +61,8 @@
                                         <label for="subcategory" class="form-label">Sub Category</label>
                                         <select name="subcategory" id="subcategory" class="form-control">
                                             @foreach ($subcategory as $item)
-                                                <option {{ $data->sub_category_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option {{ $data->sub_category_id == $item->id ? 'selected' : '' }}
+                                                    value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -71,7 +72,7 @@
                                         <label for="image" class="form-label">Image</label>
                                         <input type="file" name="image" id="image" class="form-control">
                                         <a href="javascript:void(0)" data-toggle="modal"
-                                        data-target="#modal-default" >View Image</a>
+                                            data-target="#modal-default">View Image</a>
                                         @error('image')
                                             <span>{{ $message }}</span>
                                         @enderror
@@ -88,8 +89,10 @@
                                     <div class="row">
                                         @foreach ($productImages as $productImage)
                                             <div class="col-lg-2">
-                                                <a href="{{ route('admin.remove.image',$productImage->id) }}" onclick="return confirm('Are you sure want to remove image?')">
-                                                    <img src="{{ asset('product-slider-images/'.$productImage->image) }}" alt="">
+                                                <a href="{{ route('admin.remove.image', $productImage->id) }}"
+                                                    onclick="return confirm('Are you sure want to remove image?')">
+                                                    <img src="{{ asset('product-slider-images/' . $productImage->image) }}"
+                                                        alt="" class="slider-img">
                                                 </a>
                                             </div>
                                         @endforeach
@@ -123,15 +126,20 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-@section('css')
-    <style>
-        img.w-full.modal-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-    </style>
-@endsection
+    @section('css')
+        <style>
+            img.w-full.modal-img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+            img.slider-img {
+                width: 100px;
+                height: auto;
+                object-fit: cover;
+            }
+        </style>
+    @endsection
     @section('js')
         <script>
             $("#category").on('change', function() {

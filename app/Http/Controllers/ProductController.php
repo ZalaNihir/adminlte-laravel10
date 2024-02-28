@@ -7,16 +7,20 @@ use App\Models\Collection;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\SubCategory;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
+    protected $imageService;
     /**
      * Display a listing of the resource.
      */
-    public function __construct()
+    public function __construct(ImageService $imageService)
     {
+        $this->imageService = $imageService;
+
         $category = Category::get();
         view()->share('category', $category);
 
@@ -79,7 +83,8 @@ class ProductController extends Controller
         $productId = $product->id;
 
         // Compress and store primary product image
-        $product->image = $this->compressAndStoreImage($request->file('image'), $uniqueSlug);
+        // $product->image = $this->compressAndStoreImage($request->file('image'), $uniqueSlug);
+        $product->image = $this->imageService->compressAndStoreImage($request->file('image'), $uniqueSlug, 'product');
 
         $product->save();
 
@@ -89,24 +94,14 @@ class ProductController extends Controller
         return redirect()->route('admin.product.index')->with('success', 'Product created successfully.');
     }
 
-    private function compressAndStoreImage($image, $uniqueSlug)
-    {
-        // Compress and store the image
-        $compressedImage = imagecreatefromstring(file_get_contents($image->getRealPath()));
-        $filename = $uniqueSlug . '.' . 'webp';
-        $savePath = public_path('product-image/' . $filename);
-        imagewebp($compressedImage, $savePath, 45); // Adjust quality as needed
-        imagedestroy($compressedImage);
-
-        return $filename;
-    }
-
     private function handleProductSliderImages($images, $productId)
     {
         if ($images) {
+            $uniqueSlug = Str::uuid();
             foreach ($images as $image) {
-                $realImage = $productId . "-" . uniqid() . "-" . date('d-m-Y-h-s') . "." . $image->getClientOriginalExtension();
-                $path = $image->move('product-slider-images', $realImage);
+                $realImage = $this->imageService->compressAndStoreImage($image, $uniqueSlug, 'slider');
+                // $realImage = $productId . "-" . uniqid() . "-" . date('d-m-Y-h-s') . "." . $image->getClientOriginalExtension();
+                // $path = $image->move('product-slider-images', $realImage);
                 ProductImage::create([
                     'product_id' => $productId,
                     'image' => $realImage,
@@ -144,7 +139,6 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'collection' => 'required',
             'category' => 'required',
-            'subcategory' => 'required',
         ]);
         $baseSlug = Str::slug($request->name);
         $uniqueSlug = $baseSlug;

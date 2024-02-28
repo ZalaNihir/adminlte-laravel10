@@ -4,27 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Collection;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class CollectionController extends Controller
 {
+    protected $imageService;
     /**
      * Display a category listing of the resource.
      */
-    public function __construct()
+    public function __construct(ImageService $imageService)
     {
-        $category = Category::orderBy('id','DESC')->get();
-        view()->share('category',$category);
+        $this->imageService = $imageService;
+        $category = Category::orderBy('id', 'DESC')->get();
+        view()->share('category', $category);
     }
-    
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Collection::orderBy('id','DESC')->get();
-        return view('admin.collection.index',compact('data'));
+        $data = Collection::orderBy('id', 'DESC')->get();
+        return view('admin.collection.index', compact('data'));
     }
 
     /**
@@ -41,9 +44,9 @@ class CollectionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required|max:255',
-            'category'=>'required',
-            'image' =>  'required', 
+            'name' => 'required|max:255',
+            'category' => 'required',
+            'image' =>  'required',
             'pdf' =>  'required',
         ]);
         $baseSlug = Str::slug($request->name);
@@ -59,10 +62,11 @@ class CollectionController extends Controller
         $collection->category_id = $request->category;
         // Image store code
         if ($image = $request->file('image')) {
-            $destinationPath = 'collection-image/';
-            $profileImage = $uniqueSlug . '.' . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $collection->image = $profileImage;
+            $collection->image = $this->imageService->compressAndStoreImage($image, $uniqueSlug, 'collection');
+            // $destinationPath = 'collection-image/';
+            // $profileImage = $uniqueSlug . '.' . $image->getClientOriginalExtension();
+            // $image->move($destinationPath, $profileImage);
+            // $collection->image = $profileImage;
         }
         // Image store code
         if ($pdf = $request->file('pdf')) {
@@ -70,9 +74,9 @@ class CollectionController extends Controller
             $colPdf = $uniqueSlug . '.' . $pdf->getClientOriginalExtension();
             $pdf->move($pdfPath, $colPdf);
             $collection->pdf = $colPdf;
-        }        
+        }
         $collection->save();
-        return redirect()->route('admin.collection.index')->with('success','Collection created successfully');
+        return redirect()->route('admin.collection.index')->with('success', 'Collection created successfully');
     }
 
     /**
@@ -80,8 +84,8 @@ class CollectionController extends Controller
      */
     public function edit($id)
     {
-        $data = Collection::where('id',decrypt($id))->first();
-        return view('admin.collection.edit',compact('data'));
+        $data = Collection::where('id', decrypt($id))->first();
+        return view('admin.collection.edit', compact('data'));
     }
 
     /**
@@ -94,7 +98,7 @@ class CollectionController extends Controller
             'name' => 'required|max:255',
             'category' => 'required',
         ]);
-        
+
         $baseSlug = Str::slug($request->name);
         $uniqueSlug = $baseSlug;
         $counter = 1;
@@ -102,12 +106,12 @@ class CollectionController extends Controller
             $uniqueSlug = $baseSlug . '-' . $counter;
             $counter++;
         }
-        
+
         $collection = Collection::find($request->edit_id);
         $collection->name = $request->name;
         $collection->slug = $uniqueSlug;
         $collection->category_id = $request->category;
-        
+
         // Image update code
         if ($image = $request->file('image')) {
             // Unlink the old image
@@ -117,12 +121,13 @@ class CollectionController extends Controller
                 unlink($image_path);
             }
             // Add the new image
-            $destinationPath = 'collection-image/';
-            $profileImage = $uniqueSlug . '.' . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $collection->image = $profileImage;
+            $collection->image = $this->imageService->compressAndStoreImage($image, $uniqueSlug, 'collection');
+            // $destinationPath = 'collection-image/';
+            // $profileImage = $uniqueSlug . '.' . $image->getClientOriginalExtension();
+            // $image->move($destinationPath, $profileImage);
+            // $collection->image = $profileImage;
         }
-        
+
         // PDF update code
         if ($pdf = $request->file('pdf')) {
             // Unlink the old PDF
@@ -137,10 +142,9 @@ class CollectionController extends Controller
             $pdf->move($pdfPath, $colPdf);
             $collection->pdf = $colPdf;
         }
-        
+
         $collection->save();
         return redirect()->route('admin.collection.index')->with('info', 'Collection updated successfully');
-        
     }
 
     /**
@@ -148,7 +152,7 @@ class CollectionController extends Controller
      */
     public function destroy($id)
     {
-        $collection = Collection::where('id',decrypt($id))->first();
+        $collection = Collection::where('id', decrypt($id))->first();
 
         // Unlink the old image
         $oldImage = $collection->image;
@@ -164,6 +168,6 @@ class CollectionController extends Controller
         }
 
         $collection->delete();
-        return redirect()->route('admin.collection.index')->with('error','Collection deleted successfully.');
+        return redirect()->route('admin.collection.index')->with('error', 'Collection deleted successfully.');
     }
 }
