@@ -84,11 +84,11 @@ password: ```p$ssw#rd```
 
 - Added the Light/Dark mode in profile section at top nav.
 
-- Added the Categoy module.
+- Added the Category module.
 
 - Added the Subcategory module.
 
-- Added the product module which have basic detail & take multiple images.
+- Added the product module which has basic detail & takes multiple images.
 
 - Added the Role Module.
 
@@ -96,13 +96,15 @@ password: ```p$ssw#rd```
 
 - Added the collection Module for PDFs.
 
-- Added the Country, State & city seeder with the relationship
+- Added the Country, State & City seeder with the relationship
 
-- if you want to use the admin side but you have no idea about component & how here things are work. so that you just have to create file & put your code.
+- if you want to use the admin side but you have no idea about components & how here things work. so that you just have to create a file & put your code.
+
+- I added the functionality to compress the image size & convert it into webp format in the ```ProductController```.
 
 # Toast
 
-- Added the toastr which have 4 class success, info, warning & error. you can use it own it.
+- Added the toastr which has 4 classes success, info, warning & error. you can use it own it.
 
 ```php
 <x-admin>
