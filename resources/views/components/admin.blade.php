@@ -2,7 +2,7 @@
 /*!
  *   AdminLTE With Laravel
  *   Author: Nihir Zala
- *   Website: nihirz.netlify.app
+ *   Website: https://nihirzala.vercel.app
  *   License: Open source - MIT <https://opensource.org/licenses/MIT>
  */
 -->
