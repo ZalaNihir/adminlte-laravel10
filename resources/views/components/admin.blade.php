@@ -73,7 +73,7 @@
                             <img src="{{ Auth::user()->avatar }}" class="img-circle elevation-2" alt="User Image">
                         @else
                             <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                                alt="User Image">/
+                                alt="User Image">
                         @endif
                     </div>
                     <div class="info">
