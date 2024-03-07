@@ -5,6 +5,7 @@
  */
 
 import axios from 'axios';
+// import "https://code.jquery.com/jquery-3.7.1.min.js";
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

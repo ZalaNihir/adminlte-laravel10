@@ -1,3 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+@import url('../../public/admin/plugins/fontawesome-free/css/all.min.css');
+@import url('../../public/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css');
+@import url('../../public/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css');
+@import url('../../public/admin/plugins/jqvmap/jqvmap.min.css');
+@import url('../../public/admin/dist/css/adminlte.min.css');
+@import url('../../public/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css');
+@import url('../../public/admin/plugins/daterangepicker/daterangepicker.css');
+@import url('../../public/admin/plugins/summernote/summernote-bs4.min.css');
+@import url('../../public/admin/dist/css/toastr.min.css');
+@import url('../../public/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css');
+@import url('../../public/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css');
+@import url('../../public/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css');
