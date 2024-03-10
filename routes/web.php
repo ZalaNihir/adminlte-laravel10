@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 */
 
 Route::get('/', function () {
-    $readmePath = base_path('readme.md');
+    $readmePath = base_path('README.md');
 
     return view('welcome', [
         'terms' => Str::markdown(file_get_contents($readmePath)),
