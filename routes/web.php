@@ -19,7 +19,7 @@ Route::get('/', function () {
     $readmePath = base_path('README.md');
 
     return view('welcome', [
-        'terms' => Str::markdown(file_get_contents($readmePath)),
+        'readmeContent' => Str::markdown(file_get_contents($readmePath)),
     ]);
 });
 // Login with OTP Routes
