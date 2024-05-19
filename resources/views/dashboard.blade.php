@@ -1,6 +1,4 @@
 <x-admin>
-    @section('title')
-        {{ 'Dashboard' }}
-    @endsection
+    @section('title','Dashboard')
     <x-dashboard />
 </x-admin>
