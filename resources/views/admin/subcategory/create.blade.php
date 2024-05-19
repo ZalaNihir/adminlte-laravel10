@@ -1,7 +1,5 @@
 <x-admin>
-    @section('title')
-        {{ 'Create Sub Category' }}
-    @endsection
+    @section('title','Create subcategory')
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">

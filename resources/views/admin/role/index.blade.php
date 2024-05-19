@@ -1,5 +1,5 @@
 <x-admin>
-    @section('title')  {{ 'Roles' }} @endsection
+    @section('title','Roles')
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Roles</h3>

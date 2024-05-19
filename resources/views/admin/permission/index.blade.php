@@ -1,7 +1,5 @@
 <x-admin>
-    @section('title')
-        {{ 'Permission' }}
-    @endsection
+    @section('title','Permissions')
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Permission</h3>

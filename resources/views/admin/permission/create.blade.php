@@ -1,5 +1,5 @@
 <x-admin>
-    @section('title'){{ 'Create Permission' }} @endsection
+    @section('title','Create Permission')
     <section class="content">
         <!-- Default box -->
         <div class="d-flex justify-content-center">
@@ -33,9 +33,9 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer float-end float-right">
+                        <div class="card-footer float-right">
                             <button type="submit" id="submit"
-                                class="btn btn-primary float-end float-right">Submit</button>
+                                class="btn btn-primary float-right">Submit</button>
                         </div>
                     </form>
                 </div>

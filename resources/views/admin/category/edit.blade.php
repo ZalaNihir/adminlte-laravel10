@@ -1,7 +1,5 @@
 <x-admin>
-    @section('title')
-        {{ 'Edit Category' }}
-    @endsection
+    @section('title','Edit Category')
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">

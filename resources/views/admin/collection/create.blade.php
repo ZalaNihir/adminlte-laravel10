@@ -1,7 +1,5 @@
 <x-admin>
-    @section('title')
-        {{ 'Create Collection' }}
-    @endsection
+    @section('title','Create collection')
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
@@ -57,7 +55,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="card-footer">
