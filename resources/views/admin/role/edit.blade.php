@@ -25,9 +25,7 @@
                                         <label for="name" class="form-label">Role Name</label>
                                         <input type="text" class="form-control" name="name" id="name"
                                             required="" value="{{ $data->name }}">
-                                            @error('name')
-                                                <span>{{ $message }}</span>
-                                            @enderror
+                                            <x-error>name</x-error>
                                         <div class="invalid-feedback">Role name field is required.</div>
                                     </div>
                                 </div>

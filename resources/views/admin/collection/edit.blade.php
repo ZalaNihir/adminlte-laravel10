@@ -22,9 +22,7 @@
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" name="name" id="name" value="{{ $data->name }}"
                                             class="form-control" required>
-                                        @error('name')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+                                        <x-error>name</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -37,27 +35,21 @@
                                                     value="{{ $cat->id }}">{{ $cat->name }}</option>
                                             @endforeach
                                         </select>
-                                        @error('category')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
+                                        <x-error>category</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="image" class="form-label">Image</label>
                                         <input type="file" name="image" id="image" class="form-control">
-                                        @error('image')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+                                        <x-error>image</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="Pdf" class="form-label">Pdf</label>
                                         <input type="file" name="pdf" id="Pdf" class="form-control">
-                                        @error('pdf')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+                                        <x-error>pdf</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">

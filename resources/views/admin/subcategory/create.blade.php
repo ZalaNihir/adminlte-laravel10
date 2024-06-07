@@ -21,18 +21,14 @@
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                     @endforeach
                                 </select>
-                                @error('category')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                <x-error>category</x-error>
                             </div>
                             <div class="form-group">
                                 <label for="name">Sub Category Name</label>
                                 <input type="text" class="form-control" id="name" name="name"
                                     placeholder="Enter category name" required value="{{ old('name') }}">
                             </div>
-                            @error('name')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <x-error>name</x-error>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary float-right">Save</button>

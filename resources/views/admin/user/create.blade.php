@@ -14,9 +14,7 @@
                             <label for="name" class="form-label">Name:*</label>
                             <input type="text" class="form-control" name="name" required
                                 value="{{ old('name') }}">
-                            @error('name')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                                <x-error>name</x-error>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -24,18 +22,14 @@
                             <label for="Email" class="form-label">Email:*</label>
                             <input type="email" class="form-control" name="email" required
                                 value="{{ old('email') }}">
-                            @error('email')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                                <x-error>email</x-error>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="Password" class="form-label">Password:*</label>
                             <input type="password" class="form-control" name="password" required>
-                            @error('password')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <x-error>password</x-error>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -48,9 +42,7 @@
                                         {{ $role->name == old('role') ? 'selected' : '' }}>{{ $role->name }}</option>
                                 @endforeach
                             </select>
-                            @error('role')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <x-error>role</x-error>
                         </div>
                     </div>
                     <div class="col-lg-12">

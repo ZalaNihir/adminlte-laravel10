@@ -22,9 +22,7 @@
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" name="name" id="name" value="{{ $data->name }}"
                                             class="form-control" required>
-                                        @error('name')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+                                            <x-error>name</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -37,6 +35,7 @@
                                                     value="{{ $collect->id }}">{{ $collect->name }}</option>
                                             @endforeach
                                         </select>
+                                        <x-error>collection</x-error>
                                         @error('collection')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -52,6 +51,7 @@
                                                     value="{{ $cat->id }}">{{ $cat->name }}</option>
                                             @endforeach
                                         </select>
+                                        <x-error>category</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -63,6 +63,7 @@
                                                     value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
+                                        <x-error>subcategory</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -71,16 +72,15 @@
                                         <input type="file" name="image" id="image" class="form-control">
                                         <a href="javascript:void(0)" data-toggle="modal"
                                             data-target="#modal-default">View Image</a>
-                                        @error('image')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+                                            <x-error>image</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="product-images" class="form-label">Product Slider Images</label>
-                                        <input type="file" name="product_images" id="product-images"
+                                        <input type="file" name="product_images[]" id="product-images"
                                             class="form-control" multiple>
+                                            <x-error>product_images</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

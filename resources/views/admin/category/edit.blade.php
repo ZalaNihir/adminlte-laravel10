@@ -20,9 +20,7 @@
                                 <input type="text" class="form-control" id="name" name="name"
                                     placeholder="Enter category name" required value="{{ $data->name }}">
                             </div>
-                            @error('name')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <x-error>name</x-error>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary float-right">Update</button>

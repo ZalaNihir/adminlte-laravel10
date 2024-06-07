@@ -22,9 +22,7 @@
                                     :value="old('otp')" required autofocus autocomplete="otp" />
                                 <x-input-error :messages="$errors->get('otp')" class="mt-2" />
                             </div>
-                            @error('otp')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <x-error>otp</x-error>
                             <div class="mt-4">
                                 <button class="btn btn-success w-100" type="submit">Login</button>
                             </div>

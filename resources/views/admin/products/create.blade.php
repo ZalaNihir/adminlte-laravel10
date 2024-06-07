@@ -31,9 +31,7 @@
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" name="name" id="name" value="{{ old('name') }}"
                                             class="form-control" required>
-                                        @error('name')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+                                            <x-error>name</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -46,9 +44,7 @@
                                                     value="{{ $collect->id }}">{{ $collect->name }}</option>
                                             @endforeach
                                         </select>
-                                        @error('collection')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
+                                        <x-error>collection</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -69,9 +65,7 @@
                                         <select name="subcategory" id="subcategory" class="form-control">
                                             <option value="" selected disabled>select the subcategory</option>
                                         </select>
-                                        @error('subcategory')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
+                                        <x-error>subcategory</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -79,9 +73,7 @@
                                         <label for="image" class="form-label">Image</label>
                                         <input type="file" name="image" id="image" class="form-control"
                                             required>
-                                        @error('image')
-                                            <span>{{ $message }}</span>
-                                        @enderror
+                                        <x-error>image</x-error>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -89,6 +81,7 @@
                                         <label for="product-images" class="form-label">Product Slider Images</label>
                                         <input type="file" name="product_images[]" id="product-images"
                                             class="form-control" multiple>
+                                            <x-error>product_images</x-error>
                                     </div>
                                 </div>
                             </div>

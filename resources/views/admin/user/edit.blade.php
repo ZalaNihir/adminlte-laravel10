@@ -16,9 +16,7 @@
                             <label for="name" class="form-label">Name:*</label>
                             <input type="text" class="form-control" name="name" required
                                 value="{{ $user->name }}">
-                            @error('name')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                                <x-error>name</x-error>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -26,9 +24,7 @@
                             <label for="Email" class="form-label">Email:*</label>
                             <input type="email" class="form-control" name="email" required
                                 value="{{ $user->email }}">
-                            @error('email')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                                <x-error>email</x-error>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -41,9 +37,7 @@
                                         {{ $user->roles[0]['name'] === $role->name ? 'selected' : '' }}>{{ $role->name }}</option>
                                 @endforeach
                             </select>
-                            @error('role')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <x-error>role</x-error>
                         </div>
                     </div>
                     <div class="col-lg-12">
