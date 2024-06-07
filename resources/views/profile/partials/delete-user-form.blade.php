@@ -13,7 +13,7 @@
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')" data-toggle="modal"
         data-target="#modal-default">{{ __('Delete Account') }}</button>
 
-    <div class="modal fade" id="modal-default" name="confirm-user-deletion" :show="$errors - > userDeletion - > isNotEmpty()"
+    <div class="modal fade" id="modal-default" name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()"
         focusable>
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
