@@ -103,7 +103,7 @@
     </div>
     <!-- ./wrapper -->
     <footer class="main-footer">
-        <strong>Copyright © 2023-{{ date('Y') }} <a href="https://github.com/ZalaNihir/adminlte-laravel10">Zala
+        <strong>Copyright © 2023-{{ date('Y') }} <a href="nihirz.netlify.app">Zala
                 Nihir</a>.</strong> All rights reserved.
     </footer>
     <!-- ./wrapper -->
