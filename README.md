@@ -60,12 +60,6 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-Open a new terminal & run the bellow command as well.
-
-```php
-npm i && npm run dev
-```
-
 - This is the updated code of admin.
 
 To get the access of admin side there is credentials bellow
