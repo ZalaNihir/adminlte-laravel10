@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('image');
             $table->string('pdf');
-            $table->integer('category_id');
+            $table->foreignIdFor(Category::class)->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
