@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Collection;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class CollectionFactory extends Factory
 {
     protected $model = Collection::class;
+
     /**
      * Define the model's default state.
      *
@@ -19,11 +21,11 @@ class CollectionFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word,
-            'slug' => $this->faker->slug,
-            'image' => 'admin/dist/img/avatar.png',
-            'pdf' => 'admin/pdf/dummy.pdf',
-            'category_id' => $this->faker->numberBetween(1, 10),
+            'name' => $this->faker->unique()->word, // Unique collection name
+            'slug' => $this->faker->unique()->slug, // Ensures slug uniqueness
+            'image' => $this->faker->imageUrl(640, 480, 'collections', true), // Generates a random image URL
+            'pdf' => 'admin/pdf/dummy.pdf', // Static PDF path
+            'category_id' => Category::factory(), // Use a valid Category ID from CategoryFactory
         ];
     }
 }
