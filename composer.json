@@ -13,9 +13,8 @@
         "laravel/socialite": "^5.11",
         "laravel/tinker": "^2.8",
         "spatie/laravel-permission": "^6.0",
-        "twilio/sdk": "^7.14",
-        "zalanihir/country-state-city": "^1.0"
-    },
+        "twilio/sdk": "^7.14"
+        },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
